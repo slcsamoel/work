@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  # Web service layer
+  # 80:80 host:container
+  apache:
+    container_name: apache
+    build: './'
+    ports:
+      - "80:80"
+    volumes:
+      - ../projects/www/:/var/www/html
+    networks: 
+      - default
+networks:
+  default:
+    external: true
+    name: php_dev
+    
